@@ -8,6 +8,7 @@ const departureInput = document.querySelector("#departure");
 const arrivalInput = document.querySelector("#arrival");
 const airlineInput = document.querySelector("#airline");
 const searchBtn = document.querySelector("#search-btn");
+const backBtn = document.querySelector("#back-btn");
 const flightTableContainer = document.querySelector("#flight-table-container");
 const tableBody = document.querySelector("#table-body");
 
@@ -47,6 +48,8 @@ const arrivalGate = document.querySelector(".arrival-gate");
 // Populate student details
 studentName.textContent = "Basil Barnaby";
 studentId.textContent = "200540109";
+
+// Clear input fields
 
 // Function that gets the flights from the API with the given parameters
 function getFlights() {
@@ -241,3 +244,10 @@ function formatDate(dateString) {
 
 // Event listener for the search button
 searchBtn.addEventListener("click", getFlights);
+
+// Event listener for the back button
+backBtn.addEventListener("click", () => {
+  searchContainer.classList.remove("hidden");
+  detailsContainer.classList.add("hidden");
+  getFlights();
+});

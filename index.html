@@ -87,6 +87,9 @@
 	</div>
 
 	<div class="max-w-7xl mx-auto py-16 hidden" id="details-container">
+		<div class="flex justify-end">
+			<button class="primary-btn  py-4 px-4 text-white mb-4" id="back-btn">Back to flights</button>
+		</div>
 		<div class="bg-white w-full rounded-md flight-detail-card">
 			<div class="w-full bg-gray-100 h-24 flex justify-between items-center">
 				<div class="p-10">
@@ -134,13 +137,13 @@
 							<p class="departure-runway">date and time</p>
 						</div>
 					</div>
-					<div class="flex justify-between w-72 mt-5">
+					<div class="flex justify-between w-80 mt-5">
 						<div class="flex">
-							<div class="terminal-tag p-2 text-white font-semibold rounded-l-md">Terminal</div>
+							<div class="terminal-tag p-2 text-white rounded-l-md">Terminal</div>
 							<div class="departure-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 						<div class="flex">
-							<div class="gate-tag p-2 text-white font-semibold rounded-l-md">Gate</div>
+							<div class="gate-tag p-2 text-white rounded-l-md">Gate</div>
 							<div class="departure-gate py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 					</div>
@@ -171,13 +174,13 @@
 							<p class="arrival-runway">date and time</p>
 						</div>
 					</div>
-					<div class="flex justify-between w-72 mt-5">
+					<div class="flex justify-between w-80 mt-5">
 						<div class="flex">
-							<div class="terminal-tag p-2 text-white font-semibold rounded-l-md">Terminal</div>
+							<div class="terminal-tag p-2 text-white rounded-l-md">Terminal</div>
 							<div class="arrival-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 						<div class="flex">
-							<div class="gate-tag p-2 text-white font-semibold rounded-l-md">Gate</div>
+							<div class="gate-tag p-2 text-white rounded-l-md">Gate</div>
 							<div class="arrival-gate py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 					</div>
@@ -185,6 +188,10 @@
 			
 			</div>
 		</div>
+	</div>
+
+	<div class="max-w-7xl mx-auto text-center text-gray-500 text-sm mt-4" >
+		<p>The API may be slow or might not respond sometimes due to what I think is a limitation/throttle of the free tier. If this happens, wait a few seconds or refresh and try again.</p>
 	</div>
 
 	<div class="bg-slate-800 w-full p-2 text-white text-xs flex justify-center fixed bottom-0">
