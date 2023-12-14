@@ -85,76 +85,80 @@ function populateFlightsData(data) {
   } else {
     let flightsArray = data.data;
 
-    for (let i = 0; i < flightsArray.length; i++) {
-      // Create the table elements
-      let tableTr = document.createElement("tr");
-      let airlineTh = document.createElement("th");
-      let flightNumberTd = document.createElement("td");
-      let departureTd = document.createElement("td");
-      let arrivalTd = document.createElement("td");
-      let dateTd = document.createElement("td");
-      let statusTd = document.createElement("td");
-      let actionTd = document.createElement("td");
-      let viewButton = document.createElement("button");
+    if (flightsArray && flightsArray.length > 0) {
+      for (let i = 0; i < flightsArray.length; i++) {
+        // Create the table elements
+        let tableTr = document.createElement("tr");
+        let airlineTh = document.createElement("th");
+        let flightNumberTd = document.createElement("td");
+        let departureTd = document.createElement("td");
+        let arrivalTd = document.createElement("td");
+        let dateTd = document.createElement("td");
+        let statusTd = document.createElement("td");
+        let actionTd = document.createElement("td");
+        let viewButton = document.createElement("button");
 
-      let formattedDate = formatDate(flightsArray[i].departure.scheduled);
+        let formattedDate = formatDate(flightsArray[i].departure.scheduled);
 
-      // Added style classes to the table elements
-      tableTr.classList.add("odd:bg-white", "even:bg-gray-50", "border-b");
-      airlineTh.classList.add(
-        "px-6",
-        "py-4",
-        "font-medium",
-        "text-gray-900",
-        "whitespace-nowrap"
-      );
-      flightNumberTd.classList.add("px-6", "py-4");
-      departureTd.classList.add("px-6", "py-4");
-      arrivalTd.classList.add("px-6", "py-4");
-      dateTd.classList.add("px-6", "py-4");
-      statusTd.classList.add("px-6", "py-4");
-      actionTd.classList.add("px-6", "py-4");
-      viewButton.classList.add(
-        "px-4",
-        "py-2",
-        "font-semibold",
-        "text-white",
-        "bg-blue-500",
-        "rounded",
-        "hover:bg-blue-700"
-      );
-
-      // Populate the table elements with the data
-      airlineTh.textContent = flightsArray[i].airline.name;
-      flightNumberTd.textContent = flightsArray[i].flight.iata;
-      departureTd.textContent = flightsArray[i].departure.airport;
-      arrivalTd.textContent = flightsArray[i].arrival.airport;
-      dateTd.textContent = formattedDate;
-      statusTd.textContent = flightsArray[i].flight_status;
-      viewButton.textContent = "View";
-      viewButton.addEventListener("click", (e) => {
-        getFlight(
-          flightsArray[i].departure.iata,
-          flightsArray[i].arrival.iata,
-          flightsArray[i].airline.iata,
-          flightsArray[i].flight.number,
-          flightsArray[i].flight_status
+        // Added style classes to the table elements
+        tableTr.classList.add("odd:bg-white", "even:bg-gray-50", "border-b");
+        airlineTh.classList.add(
+          "px-6",
+          "py-4",
+          "font-medium",
+          "text-gray-900",
+          "whitespace-nowrap"
         );
-      });
+        flightNumberTd.classList.add("px-6", "py-4");
+        departureTd.classList.add("px-6", "py-4");
+        arrivalTd.classList.add("px-6", "py-4");
+        dateTd.classList.add("px-6", "py-4");
+        statusTd.classList.add("px-6", "py-4");
+        actionTd.classList.add("px-6", "py-4");
+        viewButton.classList.add(
+          "px-4",
+          "py-2",
+          "font-semibold",
+          "text-white",
+          "bg-blue-500",
+          "rounded",
+          "hover:bg-blue-700"
+        );
 
-      actionTd.appendChild(viewButton);
+        // Populate the table elements with the data
+        airlineTh.textContent = flightsArray[i].airline.name;
+        flightNumberTd.textContent = flightsArray[i].flight.iata;
+        departureTd.textContent = flightsArray[i].departure.airport;
+        arrivalTd.textContent = flightsArray[i].arrival.airport;
+        dateTd.textContent = formattedDate;
+        statusTd.textContent = flightsArray[i].flight_status;
+        viewButton.textContent = "View";
+        viewButton.addEventListener("click", (e) => {
+          getFlight(
+            flightsArray[i].departure.iata,
+            flightsArray[i].arrival.iata,
+            flightsArray[i].airline.iata,
+            flightsArray[i].flight.number,
+            flightsArray[i].flight_status
+          );
+        });
 
-      // Append the table elements to the table body
-      tableTr.appendChild(airlineTh);
-      tableTr.appendChild(flightNumberTd);
-      tableTr.appendChild(departureTd);
-      tableTr.appendChild(arrivalTd);
-      tableTr.appendChild(dateTd);
-      tableTr.appendChild(statusTd);
-      tableTr.appendChild(actionTd);
+        actionTd.appendChild(viewButton);
 
-      // Append the table row to the table body
-      tableBody.appendChild(tableTr);
+        // Append the table elements to the table body
+        tableTr.appendChild(airlineTh);
+        tableTr.appendChild(flightNumberTd);
+        tableTr.appendChild(departureTd);
+        tableTr.appendChild(arrivalTd);
+        tableTr.appendChild(dateTd);
+        tableTr.appendChild(statusTd);
+        tableTr.appendChild(actionTd);
+
+        // Append the table row to the table body
+        tableBody.appendChild(tableTr);
+      }
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
     }
 
     // Show the table
