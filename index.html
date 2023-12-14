@@ -31,7 +31,7 @@
 		<h5 class="text-2xl">Your Window to the Skies! Experience real-time flight tracking at your fingertips.</h5>
 	</header>
 
-	<div class="max-w-7xl mx-auto py-16">
+	<div class="max-w-7xl mx-auto py-16" id="search-container">
 		<div class="bg-white w-full rounded-md flights-card p-10">
 			<div class="flex justify-between items-center">
 				<div class="flex-grow">
@@ -46,7 +46,7 @@
 					<label for="">Airline (Optional)</label>
 					<input type="text" name="airline" id="airline" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="">
 				</div>
-				<button id="search-btn" class="primary-btn py-4 px-4 text-white mt-9 rounded-r-lg">Search Flights</button>
+				<button id="search-btn" class="primary-btn py-4 px-4 text-white mt-9 rounded-r-lg"><span id="searchText">Search Flights</span></button>
 			</div>
 		
 
@@ -85,5 +85,107 @@
 
 		</div>
 	</div>
+
+	<div class="max-w-7xl mx-auto py-16 hidden" id="details-container">
+		<div class="bg-white w-full rounded-md flight-detail-card">
+			<div class="w-full bg-gray-100 h-24 flex justify-between items-center">
+				<div class="p-10">
+					<h1 class="flight-iata text-3xl font-bold mb-1">AC1234</h1>
+					<p class="airline-name">Air Canada (AC)</p>
+				</div>
+				<div class="p-10 text-center">
+					<h2 class="departure-iata text-2xl font-bold mb-1">YYZ</h2>
+					<p class="departure-airport-name">Pearson International</p>
+				</div>
+				<img src="assets/images/plane.png" alt="" class="plane-img">
+				<div class="p-10 text-center">
+					<h2 class="arrival-iata text-2xl font-bold mb-1">KIN</h2>
+					<p class="arrival-airport-name">Norman Manley International</p>
+				</div>
+				<div class="p-10">
+					<h2 class="text-2xl font-bold mb-1">Status</h2>
+					<p class="flight-status">Airborne</p>
+				</div>
+			</div>
+			<div class="w-full flex justify-between items-center p-10">
+				<div class="bg-white flex flex-col justify-between items-center">
+					<h3 class="text-lg font-bold mt-1 bg-gray-100 py-2 px-6 rounded-full">Departure</h3>
+					<h2 class="text-3xl mt-2 departure-airport-name">Pearson International</h2>
+					<div class="flex justify-between items-center">
+						<h3 class="font-bold text-gray-500 mt-1 departure-iata">Departure IATA</h3>
+						<p class="font-bold px-2"> - </p>
+						<h3 class="font-bold text-gray-500 mt-1 departure-icao">Departure ICAO</h3>
+					</div>
+					<div class="grid grid-rows-2 grid-flow-col text-center mt-3">
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Scheduled</p>
+							<p class="departure-scheduled">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Actual</p>
+							<p class="departure-actual">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Estimated</p>
+							<p class="departure-estimated">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Runway</p>
+							<p class="departure-runway">date and time</p>
+						</div>
+					</div>
+					<div class="flex justify-between w-72 mt-5">
+						<div class="flex">
+							<div class="terminal-tag p-2 text-white font-semibold rounded-l-md">Terminal</div>
+							<div class="departure-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
+						</div>
+						<div class="flex">
+							<div class="gate-tag p-2 text-white font-semibold rounded-l-md">Gate</div>
+							<div class="departure-gate py-2 px-6 font-semibold rounded-r-md">0</div>
+						</div>
+					</div>
+				</div>
+				<div class="bg-white flex flex-col justify-between items-center">
+					<h3 class="text-lg font-bold mt-1 bg-gray-100 py-2 px-6 rounded-full">Arrival</h3>
+					<h2 class="text-3xl mt-2 arrival-airport-name">Pearson International</h2>
+					<div class="flex justify-between items-center">
+						<h3 class="font-bold text-gray-500 mt-1 arrival-iata">Arrival IATA</h3>
+						<p class="font-bold px-2"> - </p>
+						<h3 class="font-bold text-gray-500 mt-1 arrival-icao">Arrival ICAO</h3>
+					</div>
+					<div class="grid grid-rows-2 grid-flow-col text-center mt-3">
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Scheduled</p>
+							<p class="arrival-scheduled">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Actual</p>
+							<p class="arrival-actual">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Estimated</p>
+							<p class="arrival-estimated">date and time</p>
+						</div>
+						<div class="bg-gray-100 w-64 p-5">
+							<p class="font-bold">Runway</p>
+							<p class="arrival-runway">date and time</p>
+						</div>
+					</div>
+					<div class="flex justify-between w-72 mt-5">
+						<div class="flex">
+							<div class="terminal-tag p-2 text-white font-semibold rounded-l-md">Terminal</div>
+							<div class="departure-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
+						</div>
+						<div class="flex">
+							<div class="gate-tag p-2 text-white font-semibold rounded-l-md">Gate</div>
+							<div class="departure-gate py-2 px-6 font-semibold rounded-r-md">0</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
   </body>
 </html>
