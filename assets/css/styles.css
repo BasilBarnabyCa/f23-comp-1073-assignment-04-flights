@@ -1,0 +1,36 @@
+body {
+	/* font-family: "Open Sans", sans-serif; */
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+	background-color: #f1f1fb;
+
+}
+
+header {
+	background-image: url(../images/header-plane-bg.jpg);
+	background-position: center;
+	background-size: cover;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.flights-card {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+	max-height: 850px;
+}
+
+.primary-btn {
+	background-color: #607186;
+	border: 2px solid #607186;
+	transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+	background-color: #45576e;
+	border: 1px solid #45576e;
+}
+
+#flight-table-container{
+	max-height: 500px;
+	overflow-y: scroll;
+}
