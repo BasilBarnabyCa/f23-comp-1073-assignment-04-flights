@@ -213,7 +213,6 @@ function populateFlightData(data) {
     arrivalIcao.textContent = `ICAO: ${data.data[0].arrival.icao}`;
     arrivalAirport.textContent = data.data[0].arrival.airport;
     arrivalAirportSecondary.textContent = data.data[0].arrival.airport;
-    flightStatus.textContent = data.data[0].flight_status;
 
     departureScheduled.textContent = formatDate(
       data.data[0].departure.scheduled
@@ -231,6 +230,20 @@ function populateFlightData(data) {
     arrivalRunway.textContent = formatDate(data.data[0].arrival.actual);
     arrivalTerminal.textContent = data.data[0].arrival.terminal;
     arrivalGate.textContent = data.data[0].arrival.gate;
+
+	// Because the API only returns text data (no images etc), I decided to change color status based on the flight status response to meet rubric requirements
+	if(data.data[0].flight_status === "active"){
+		flightStatus.classList.add("text-emerald-500");
+	} else if(data.data[0].flight_status === "scheduled"){
+		flightStatus.classList.add("text-indigo-500");
+	} else if(data.data[0].flight_status === "landed"){
+		flightStatus.classList.add("text-green-500");
+	} else if(data.data[0].flight_status === "cancelled"){
+		flightStatus.classList.add("text-red-500");
+	} else if(data.data[0].flight_status === "delayed"){
+		flightStatus.classList.add("text-orange-500");
+	}
+
   }
 }
 
