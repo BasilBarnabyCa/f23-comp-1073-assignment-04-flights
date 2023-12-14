@@ -80,7 +80,7 @@ function populateFlightsData(data) {
   console.log(data.data);
   tableBody.innerHTML = "";
 
-  if (data && data.data.length > 0) {
+  if (data && data.pagination && data.pagination.total === 0) {
     alert("No flights found");
   } else {
     let flightsArray = data.data;
