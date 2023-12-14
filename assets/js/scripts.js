@@ -44,6 +44,7 @@ const arrivalActual = document.querySelector(".arrival-actual");
 const arrivalRunway = document.querySelector(".arrival-runway");
 const arrivalTerminal = document.querySelector(".arrival-terminal");
 const arrivalGate = document.querySelector(".arrival-gate");
+const flightStatusContainer = document.querySelector("#flight-status-container");
 
 // Populate student details
 studentName.textContent = "Basil Barnaby";
@@ -53,6 +54,10 @@ studentId.textContent = "200540109";
 
 // Function that gets the flights from the API with the given parameters
 function getFlights() {
+  searchBtn.disabled = true;
+  departureInput.disabled = true;
+  arrivalInput.disabled = true;
+  airlineInput.disabled = true;
   flightTableContainer.classList.add("hidden");
 
   // Get the values from the input fields
@@ -78,6 +83,10 @@ function getFlights() {
 // Function that populates the table with the flights data
 function populateFlightsData(data) {
   console.log(data.data);
+  searchBtn.disabled = false;
+  departureInput.disabled = false;
+  arrivalInput.disabled = false;
+  airlineInput.disabled = false;
   tableBody.innerHTML = "";
 
   if (data && data.pagination && data.pagination.total === 0) {
@@ -231,19 +240,19 @@ function populateFlightData(data) {
     arrivalTerminal.textContent = data.data[0].arrival.terminal;
     arrivalGate.textContent = data.data[0].arrival.gate;
 
-	// Because the API only returns text data (no images etc), I decided to change color status based on the flight status response to meet rubric requirements
-	if(data.data[0].flight_status === "active"){
-		flightStatus.classList.add("text-emerald-500");
-	} else if(data.data[0].flight_status === "scheduled"){
-		flightStatus.classList.add("text-indigo-500");
-	} else if(data.data[0].flight_status === "landed"){
-		flightStatus.classList.add("text-green-500");
-	} else if(data.data[0].flight_status === "cancelled"){
-		flightStatus.classList.add("text-red-500");
-	} else if(data.data[0].flight_status === "delayed"){
-		flightStatus.classList.add("text-orange-500");
-	}
-
+    // Because the API only returns text data (no images etc), I decided to change color status based on the flight status response to meet rubric requirements
+    if (data.data[0].flight_status === "active") {
+      flightStatusContainer.classList.add("bg-emerald-500");
+    } else if (data.data[0].flight_status === "scheduled") {
+      flightStatusContainer.classList.add("bg-indigo-500");
+    } else if (data.data[0].flight_status === "landed") {
+      flightStatusContainer.classList.add("bg-green-500");
+    } else if (data.data[0].flight_status === "cancelled") {
+      flightStatusContainer.classList.add("bg-red-500");
+    } else if (data.data[0].flight_status === "delayed") {
+      flightStatusContainer.classList.add("bg-orange-500");
+    }
+	flightStatus.textContent = data.data[0].flight_status;
   }
 }
 
