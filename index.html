@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Basil Barnaby | Assignment 04 | FlightDeck</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="assets/js/scripts.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,15 +36,15 @@
 			<div class="flex justify-between items-center">
 				<div class="flex-grow">
 					<label for="">Departure</label>
-					<input type="text" name="departure" id="departure" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="">
+					<input type="text" name="departure" id="departure" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="Eg. YYZ, LAX">
 				</div>
 				<div class="flex-grow">
 					<label for="">Arrival (Optional)</label>
-					<input type="text" name="arrival" id="arrival" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="">
+					<input type="text" name="arrival" id="arrival" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="Eg. MIA, JFK">
 				</div>
 				<div class="flex-grow">
 					<label for="">Airline (Optional)</label>
-					<input type="text" name="airline" id="airline" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="">
+					<input type="text" name="airline" id="airline" class="block w-full border-0 p-4 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 mt-3 border-2 border-gray-300 border-r-0" placeholder="Eg. Air Canada">
 				</div>
 				<button id="search-btn" class="primary-btn py-4 px-4 text-white mt-9 rounded-r-lg"><span id="searchText">Search Flights</span></button>
 			</div>
@@ -110,9 +110,9 @@
 			<div class="w-full flex justify-between items-center p-10">
 				<div class="bg-white flex flex-col justify-between items-center">
 					<h3 class="text-lg font-bold mt-1 bg-gray-100 py-2 px-6 rounded-full">Departure</h3>
-					<h2 class="text-3xl mt-2 departure-airport-name">Pearson International</h2>
+					<h2 class="text-3xl mt-2 departure-airport-name-secondary">Pearson International</h2>
 					<div class="flex justify-between items-center">
-						<h3 class="font-bold text-gray-500 mt-1 departure-iata">Departure IATA</h3>
+						<h3 class="font-bold text-gray-500 mt-1 departure-iata-secondary">Departure IATA</h3>
 						<p class="font-bold px-2"> - </p>
 						<h3 class="font-bold text-gray-500 mt-1 departure-icao">Departure ICAO</h3>
 					</div>
@@ -147,9 +147,9 @@
 				</div>
 				<div class="bg-white flex flex-col justify-between items-center">
 					<h3 class="text-lg font-bold mt-1 bg-gray-100 py-2 px-6 rounded-full">Arrival</h3>
-					<h2 class="text-3xl mt-2 arrival-airport-name">Pearson International</h2>
+					<h2 class="text-3xl mt-2 arrival-airport-name-secondary">Pearson International</h2>
 					<div class="flex justify-between items-center">
-						<h3 class="font-bold text-gray-500 mt-1 arrival-iata">Arrival IATA</h3>
+						<h3 class="font-bold text-gray-500 mt-1 arrival-iata-secondary">Arrival IATA</h3>
 						<p class="font-bold px-2"> - </p>
 						<h3 class="font-bold text-gray-500 mt-1 arrival-icao">Arrival ICAO</h3>
 					</div>
@@ -174,17 +174,25 @@
 					<div class="flex justify-between w-72 mt-5">
 						<div class="flex">
 							<div class="terminal-tag p-2 text-white font-semibold rounded-l-md">Terminal</div>
-							<div class="departure-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
+							<div class="arrival-terminal py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 						<div class="flex">
 							<div class="gate-tag p-2 text-white font-semibold rounded-l-md">Gate</div>
-							<div class="departure-gate py-2 px-6 font-semibold rounded-r-md">0</div>
+							<div class="arrival-gate py-2 px-6 font-semibold rounded-r-md">0</div>
 						</div>
 					</div>
 				</div>
 			
 			</div>
 		</div>
+	</div>
+
+	<div class="bg-slate-800 w-full p-2 text-white text-xs flex justify-center fixed bottom-0">
+		<p id="student-name" class="px-2"></p>
+		<p class="px-2">|</p>
+		<p id="student-id" class="px-2"></p>
+		<p class="px-2">|</p>
+		<p class="px-2"><a href="https://aviationstack.com/documentation" target="_blank" class="hover:underline">AviationStack API Documentation</a></p>
 	</div>
 
   </body>
